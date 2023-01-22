@@ -1,6 +1,7 @@
 package com.example.security.controler;
 
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,4 +39,10 @@ public class SecurityControler {
     public String hiPost(){
         return "hiPost";
     }
+
+    @PostAuthorize("#username == authentication.principal.username")
+    public String loginEquls(String username) {
+        return "Hello Username - " + username;
+    }
+
 }

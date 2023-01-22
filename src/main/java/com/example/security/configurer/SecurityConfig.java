@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.management.Query;
+
 @Configuration
 @EnableMethodSecurity(securedEnabled = true, prePostEnabled = true, jsr250Enabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
@@ -30,6 +32,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .withUser("Vasy")
                 .password(encoder().encode("password3"))
                 .authorities("write");
+    }
+    public void queryName(){
+
     }
 
 //    @Override
